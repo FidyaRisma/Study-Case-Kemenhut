@@ -92,6 +92,9 @@ abstract.onAdd = function (map) {
     this._div.innerHTML = 'Deforestasi merupakan salah permasalahan utama yang terjadi di Pulau Sumatera. Dengan menggunakan data penggunaan lahan dari satelit MODIS, deforestasi dapat diukur dengan membandingkan perubahan dari tahun referensi dan yang diinginkan. Pada kasus ini, dicontohkan menggunakan tahun 2001 dan 2023.';
     return this._div;
 };
+
+abstract.addTo(map);
+
         var zoomControl = L.control.zoom({
             position: 'topleft'
         }).addTo(map);
