@@ -40,7 +40,7 @@
         <script src="data/BatasNegara_1.js"></script>
         <script src="data/StatusHutan_2.js"></script>
         <script src="data/PersentaseKondisiPerubahanHutan_3.js"></script>
-        <script src="data/TamanNasional_4.js"></script>
+        <script src="data/KawasanLindung_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:2
@@ -302,6 +302,7 @@ abstract.addTo(map);
                 <td>' + (feature.properties['Tidak Beru'] !== null ? autolinker.link(feature.properties['Tidak Beru'].toLocaleString() + '%') : '') + '</td>\
             </tr>\
         </table>';
+
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
 				addClassToPopupIfMedia(content, e.popup);
@@ -336,7 +337,7 @@ abstract.addTo(map);
         });
         bounds_group.addLayer(layer_PersentaseKondisiPerubahanHutan_3);
         map.addLayer(layer_PersentaseKondisiPerubahanHutan_3);
-        function pop_TamanNasional_4(feature, layer) {
+        function pop_KawasanLindung_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">NAME</th>\
@@ -354,11 +355,11 @@ abstract.addTo(map);
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_TamanNasional_4_0() {
+        function style_KawasanLindung_4_0() {
             return {
-                pane: 'pane_TamanNasional_4',
+                pane: 'pane_KawasanLindung_4',
                 opacity: 1,
-                color: 'rgba(247,255,1,1.0)',
+                color: 'rgba(187,0,200,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
@@ -367,22 +368,22 @@ abstract.addTo(map);
                 interactive: true,
             }
         }
-        map.createPane('pane_TamanNasional_4');
-        map.getPane('pane_TamanNasional_4').style.zIndex = 404;
-        map.getPane('pane_TamanNasional_4').style['mix-blend-mode'] = 'normal';
-        var layer_TamanNasional_4 = new L.geoJson(json_TamanNasional_4, {
+        map.createPane('pane_KawasanLindung_4');
+        map.getPane('pane_KawasanLindung_4').style.zIndex = 404;
+        map.getPane('pane_KawasanLindung_4').style['mix-blend-mode'] = 'normal';
+        var layer_KawasanLindung_4 = new L.geoJson(json_KawasanLindung_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TamanNasional_4',
-            layerName: 'layer_TamanNasional_4',
-            pane: 'pane_TamanNasional_4',
-            onEachFeature: pop_TamanNasional_4,
-            style: style_TamanNasional_4_0,
+            dataVar: 'json_KawasanLindung_4',
+            layerName: 'layer_KawasanLindung_4',
+            pane: 'pane_KawasanLindung_4',
+            onEachFeature: pop_KawasanLindung_4,
+            style: style_KawasanLindung_4_0,
         });
-        bounds_group.addLayer(layer_TamanNasional_4);
-        map.addLayer(layer_TamanNasional_4);
+        bounds_group.addLayer(layer_KawasanLindung_4);
+        map.addLayer(layer_KawasanLindung_4);
         var overlaysTree = [
-            {label: '<img src="legend/TamanNasional_4.png" /> Taman Nasional', layer: layer_TamanNasional_4},
+            {label: '<img src="legend/KawasanLindung_4.png" /> Kawasan Lindung', layer: layer_KawasanLindung_4},
             {label: '<img src="legend/PersentaseKondisiPerubahanHutan_3.png" /> Persentase Kondisi Perubahan Hutan', layer: layer_PersentaseKondisiPerubahanHutan_3},
             {label: 'Status Hutan<br /><table><tr><td style="text-align: center;"><img src="legend/StatusHutan_2_TidakAdaPerubahan0.png" /></td><td>Tidak Ada Perubahan</td></tr><tr><td style="text-align: center;"><img src="legend/StatusHutan_2_Aforestasi1.png" /></td><td>Aforestasi</td></tr><tr><td style="text-align: center;"><img src="legend/StatusHutan_2_Deforestasi2.png" /></td><td>Deforestasi</td></tr></table>', layer: layer_StatusHutan_2},
             {label: 'Batas Negara<br /><table><tr><td style="text-align: center;"><img src="legend/BatasNegara_1_Indonesia0.png" /></td><td>Indonesia</td></tr><tr><td style="text-align: center;"><img src="legend/BatasNegara_1_NegaraLain1.png" /></td><td>Negara Lain</td></tr></table>', layer: layer_BatasNegara_1},
@@ -449,21 +450,21 @@ abstract.addTo(map);
         });       
         setBounds();
         map.addControl(new L.Control.Search({
-            layer: layer_TamanNasional_4,
+            layer: layer_KawasanLindung_4,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'NAME'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
-        resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_TamanNasional_4]);
+        resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_KawasanLindung_4]);
         map.on("zoomend", function(){
-            resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_TamanNasional_4]);
+            resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_KawasanLindung_4]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_TamanNasional_4]);
+            resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_KawasanLindung_4]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_TamanNasional_4]);
+            resetLabels([layer_PersentaseKondisiPerubahanHutan_3,layer_KawasanLindung_4]);
         });
         </script>
     </body>
